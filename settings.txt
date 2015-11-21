@@ -1,0 +1,16 @@
+alarmPhone=Alarm phone
+userPhones[0]=+7921356489
+userPhones[1]=+7925698745
+userPhones[2]=+7945896231
+userPhones[3]=+7903201111
+timeInDevice=1417
+dateInDevice=150113
+temperature=4
+battery=6.6
+energy=false
+relay[0]=false
+relay[1]=false
+relay[2]=false
+relay[3]=false
+relay[4]=true00-00
+relay[5]=true00-00
