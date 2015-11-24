@@ -49,8 +49,8 @@ public class TestRelay {
         processingSMS.checkSMS(textSms);
         printRelays(relays);
 
-        String  comRelay = relays[4].commandForSms();
-        System.out.println(comRelay);
+//        String  comRelay = relays[4].commandForSms();
+//        System.out.println(comRelay);
 
 
       FileIO.saveFile(AdvanceSharedPreferences.PATH_AND_NAME_FILE_PREF, advSharedPref.stringSettings(da));

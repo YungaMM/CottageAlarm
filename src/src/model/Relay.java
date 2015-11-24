@@ -29,22 +29,7 @@ public class Relay {
         command = this.switchOnOff ? COMMAND_ON : COMMAND_OFF;
         return String.format(command, this.count + 1, this.option);
     }
-//************************************************************************
 
-    //метод возвращает команду Реле для СМС
-    public String commandForSms(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("#R");
-        sb.append(count+1);
-        sb.append("=");
-        sb.append(switchOnOff? "1":"0");
-        if (!option.equals("")){
-            sb.append(",");
-            sb.append(option);
-            sb.append(",0");
-        }
-        return sb.toString();
-    }
     //********************get/set*******************************************************
 
     public void setSwitchOnOff(final boolean switchOnOff) {
