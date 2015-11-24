@@ -1,7 +1,5 @@
 package src.model;
 
-import java.util.IntSummaryStatistics;
-
 public class Relay {
 
     private static final String COMMAND_OFF = "#R%d=0";
