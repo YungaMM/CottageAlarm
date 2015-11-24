@@ -1,5 +1,6 @@
 import src.controllers.CommandsAlarm;
 import src.controllers.DevicesAlarm;
+import src.model.Relay;
 import tests.AdvanceSharedPreferences;
 import tests.FileIO;
 
@@ -12,8 +13,9 @@ public class TestCommandsAlarm {
         AdvanceSharedPreferences.loadPreferences(textFile);
 
         DevicesAlarm deviceAlarm = new DevicesAlarm();
+        Relay relay[] = deviceAlarm.getRelays();
 
-        String outSms = CommandsAlarm.outRelaySms(deviceAlarm.getRelay(1));
+        String outSms = CommandsAlarm.outRelaySms(relay[1]);
         System.out.println(outSms);
 
     }
