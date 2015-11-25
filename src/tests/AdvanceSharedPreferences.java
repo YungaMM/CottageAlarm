@@ -38,7 +38,7 @@ public class AdvanceSharedPreferences {
 
         sb.append("alarmPhone=" + basicSett.getAlarmPhone() + "\n");
         for (int i = 0; i < basicSett.getUserPhones().length; i++) {
-            sb.append("userPhones[" + i + "]=" + basicSett.getUserPhone(i) + "\n");
+            sb.append("userPhones[" + i + "]=" + basicSett.getUserPhoneNumber(i) + "\n");
         }
         sb.append("timeInDevice=" + basicSett.getTimeInDevice() + "\n");
         sb.append("dateInDevice=" + basicSett.getDateInDevice() + "\n");

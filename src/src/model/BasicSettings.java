@@ -27,10 +27,13 @@ public class BasicSettings {
         this.alarmPhone = alarmPhone;
     }
 
-    public UserPhones getUserPhone(final int count) {
-        return userPhones[count];
+    public String  getUserPhoneNumber(final int count) {
+        return userPhones[count].getPhone();
     }
 
+//    public UserPhones getUserPhoneNumber(final int count) {
+//        return userPhones[count];
+//    }
     public UserPhones[] getUserPhones(){return userPhones;}
 
 

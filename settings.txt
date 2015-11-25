@@ -1,6 +1,6 @@
 alarmPhone=Alarm phone
-userPhones[0]=src.model.UserPhones@266474c2
-userPhones[1]=src.model.UserPhones@6f94fa3e
+userPhones[0]=+7923654856
+userPhones[1]=+86332542
 userPhones[2]=src.model.UserPhones@5e481248
 userPhones[3]=src.model.UserPhones@66d3c617
 timeInDevice=12:45
@@ -9,7 +9,7 @@ temperature=25
 battery=20.0
 energy=true
 relay[0]=false
-relay[1]=false
+relay[1]=true
 relay[2]=true,00-00,0
 relay[3]=false
 relay[4]=false
