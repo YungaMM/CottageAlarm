@@ -28,11 +28,12 @@ public class SmsCommandsAlarm {
         return "V#D=" + basicSettings.getTimeInDevice() + "," + basicSettings.getDateInDevice();
     }
 
-    public static String setPhoneSetting(final int countPhone){
+    public static String setTypeAndDirectionPhone(final int countPhone){
         return "";
     }
+
     public static String queryRele(final String command){
-        return command.equals("R2") ? "?R2" : ""; //вставить команду запроса первых реле
+        return command.equals("R2") ? "?R2" : "?2";
     }
 
     public static String queryFull(){

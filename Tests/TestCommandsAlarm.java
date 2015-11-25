@@ -1,4 +1,4 @@
-import src.controllers.CommandsAlarm;
+import src.controllers.SmsCommandsAlarm;
 import src.controllers.DevicesAlarm;
 import src.model.Relay;
 import tests.AdvanceSharedPreferences;
@@ -15,7 +15,7 @@ public class TestCommandsAlarm {
         DevicesAlarm deviceAlarm = new DevicesAlarm();
         Relay relay[] = deviceAlarm.getRelays();
 
-        String outSms = CommandsAlarm.outRelaySms(relay[1]);
+        String outSms = SmsCommandsAlarm.setRelay(relay[1]);
         System.out.println(outSms);
 
     }
