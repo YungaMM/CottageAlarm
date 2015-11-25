@@ -26,7 +26,7 @@ public class TestDeviceAlarm {
         BasicSettings basicSett = deviceAlarm.getBasicSettings();
 
         basicSett.setAlarmPhone("Alarm phone");
-        basicSett.setUserPhone(0, "+79032045211");
+        basicSett.setUserPhone(0, "+7923654856");
         basicSett.setUserPhone(1, "+86332542");
         basicSett.setDateInDevice("25.01.15");
         basicSett.setTimeInDevice("12:45");

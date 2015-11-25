@@ -12,7 +12,7 @@ public class AdvanceSharedPreferences {
 
     //************************* Alarm Devices  *************************
     private static String ALARM_PHONE; //Номер телефона сигнализации
-    private static String[] USER_PHONES = new String[COUNT_USER_PHONES];//Номера телефонов забитые в сигнадлизации
+    private static UserPhones[] USER_PHONES = new UserPhones[COUNT_USER_PHONES];//Номера телефонов забитые в сигнадлизации
     private static String DATE_IN_DEVICE; //дата установленная в устройстве
     private static String TIME_IN_DEVICE; //дата установленная в устройстве
 
@@ -38,17 +38,17 @@ public class AdvanceSharedPreferences {
 
         sb.append("alarmPhone=" + basicSett.getAlarmPhone() + "\n");
         for (int i = 0; i < basicSett.getUserPhones().length; i++) {
-            sb.append("userPhones[" + i + "]=" + basicSett.getUserPhones()[i] + "\n");
+            sb.append("userPhones[" + i + "]=" + basicSett.getUserPhone(i) + "\n");
         }
         sb.append("timeInDevice=" + basicSett.getTimeInDevice() + "\n");
         sb.append("dateInDevice=" + basicSett.getDateInDevice() + "\n");
         sb.append("temperature=" + tmpr.getTemperature() + "\n");
         sb.append("battery=" + batt.getBattery() + "\n");
         sb.append("energy=" + energy.isEnergy() + "\n");
-        for (int i = 0; i < relay.length; i++) {
-            sb.append("relay[" + relay[i].getCount() + "]="
-                    + relay[i].isSwitchOnOff()
-                    + relay[i].getOption() + "\n");
+        for (Relay aRelay : relay) {
+            sb.append("relay[" + aRelay.getCount() + "]="
+                    + aRelay.isSwitchOnOff()
+                    + aRelay.getOption() + "\n");
         }
 
         return sb.toString();
@@ -71,22 +71,28 @@ public class AdvanceSharedPreferences {
 
     //Проверяем полученную строку и устанавливаем переменные
     private static void checkStringPreferences(String s) {
+        UserPhones phone = new UserPhones("");
+
         int i = s.indexOf("=") + 1;
         switch (s.substring(0, i)) {
             case "alarmPhone=":
                 ALARM_PHONE = s.substring(i);
                 break;
             case "userPhones[0]=":
-                USER_PHONES[0] = s.substring(i);
-                break;
+                phone.setPhone(s.substring(i));
+                USER_PHONES[0] = phone;
+               break;
             case "userPhones[1]=":
-                USER_PHONES[1] = s.substring(i);
+                phone.setPhone(s.substring(i));
+                USER_PHONES[1] = phone;
                 break;
             case "userPhones[2]=":
-                USER_PHONES[2] = s.substring(i);
+                phone.setPhone(s.substring(i));
+                USER_PHONES[2] = phone;
                 break;
             case "userPhones[3]=":
-                USER_PHONES[3] = s.substring(i);
+                phone.setPhone(s.substring(i));
+                USER_PHONES[3] = phone;
                 break;
             case "dateInDevice=":
                 DATE_IN_DEVICE = s.substring(i);
@@ -125,7 +131,8 @@ public class AdvanceSharedPreferences {
                 break;
         }
     }
-
+//переделать а то опции перезаписываются с каждым новым прочитанным реле
+    // надо делать переменную типа Relay
     private static void checkRelayString(final String s, final int i) {
         if (s.indexOf(",") > 0) {
             RELAY[i] = s.substring(s.indexOf("=") + 1, s.indexOf(",")).equals("true") ? true : false;
@@ -144,7 +151,7 @@ public class AdvanceSharedPreferences {
         return ALARM_PHONE;
     }
 
-    public static String[] getUserPhones() {
+    public static UserPhones[] getUserPhones() {
         return USER_PHONES;
     }
 
@@ -164,7 +171,8 @@ public class AdvanceSharedPreferences {
         Relay[] result = new Relay[RELAY.length];
         for (int i = 0; i < RELAY.length; i++) {
             result[i] = new Relay(i, RELAY[i], "");
-        }
+           // result[i] = RELAY[i];//переделать а то получается возвращаем реле без параметров
+       }
         return result;
     }
 

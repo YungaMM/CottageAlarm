@@ -3,14 +3,14 @@ package src.model;
 public class BasicSettings {
     private String alarmPhone; //Номер телефона сигнализации
 
-    private String[] userPhones; //Номера телефонов забитые в сигнадлизации
+    private UserPhones[] userPhones; //Номера телефонов забитые в сигнадлизации
 
     private String dateInDevice; //дата установленная в устройстве
 
     private String timeInDevice; //время в устройстве
 
     public BasicSettings(final String alarmPhone,
-                         final String[] userPhones,
+                         final UserPhones[] userPhones,
                          final String dateInDevice,
                          final String timeInDevice) {
         this.alarmPhone = alarmPhone;
@@ -27,20 +27,20 @@ public class BasicSettings {
         this.alarmPhone = alarmPhone;
     }
 
-    public String[] getUserPhones() {
-        return userPhones;
-    }
-
-
-    public void setUserPhones(final String[] userPhones) {
-        this.userPhones = userPhones;
-    }
-    public String getUserPhone(final int count) {
+    public UserPhones getUserPhone(final int count) {
         return userPhones[count];
     }
 
+    public UserPhones[] getUserPhones(){return userPhones;}
+
+
+    public void setUserPhones(final UserPhones[] userPhones) {
+        this.userPhones = userPhones;
+    }
+
+
     public void setUserPhone(final int count, final String userPhones) {
-        this.userPhones[count] = userPhones;
+        this.userPhones[count].setPhone(userPhones);
     }
 
     public String getDateInDevice() {

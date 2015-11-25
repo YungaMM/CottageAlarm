@@ -2,20 +2,23 @@ package src.model;
 
 
 public class UserPhones {
-    private String number;
-    private String[] option ={"0","0","0","0","0","0","0"};
+    private String phone;
+    private String[] option ={"1","1","1","1","1","1","1"};
 
-    public UserPhones(String number, String[] option) {
-        this.number = number;
+    public UserPhones (final String phone){
+        this.phone = phone;
+    }
+    public UserPhones(final String phone, final String[] option) {
+        this.phone = phone;
         this.option = option;
     }
 
-    public String getNumber() {
-        return number;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String[] getOption() {
